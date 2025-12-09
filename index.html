@@ -823,39 +823,39 @@
       /* --- Floating CTA Button Style (NEW) --- */
 
       .floating-cta {
-          /* Positioning */
-          position: fixed;
-          bottom: 25px;
-          right: 25px;
-          z-index: 1000; /* Ensure it floats above everything */
+        /* Positioning */
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000; /* Ensure it floats above everything */
 
-          /* Styling - Based on btn-primary for visual prominence */
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 12px 20px;
-          border-radius: 1000px;
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 16px;
-          
-          /* Colors */
-          color: var(--bg); /* Dark text */
-          background: var(--text); /* Light background */
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2); /* Stronger shadow for floating effect */
+        /* Styling - Based on btn-primary for visual prominence */
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 1000px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
 
-          /* Transitions & Hover */
-          transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        /* Colors */
+        color: var(--bg); /* Dark text */
+        background: var(--text); /* Light background */
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2); /* Stronger shadow for floating effect */
+
+        /* Transitions & Hover */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
       }
 
       .floating-cta:hover {
-          transform: translateY(-4px); /* Lift higher on hover */
-          box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        transform: translateY(-4px); /* Lift higher on hover */
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
       }
 
       .floating-cta i {
-          font-size: 18px;
+        font-size: 18px;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -867,7 +867,8 @@
         .contact-social-item,
         .timeline-content,
         .bar-fill,
-        .floating-cta { /* Added floating-cta */
+        .floating-cta {
+          /* Added floating-cta */
           transition: none !important;
         }
         html {
@@ -965,7 +966,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
-        </div>
+      </div>
     </header>
 
     <section class="hero">
@@ -986,7 +987,7 @@
         <div class="cta-buttons">
           <a
             class="btn btn-primary"
-            href="assets/Anees-Mufti-CV.pdf"
+            href="Assets/Anees Mufti CV.pdf"
             download="Anees-Mufti-CV.pdf"
             aria-label="Download CV"
           >
@@ -1427,11 +1428,11 @@
         </div>
       </section>
     </main>
-    
+
     <a href="#contact" class="floating-cta" aria-label="Contact Me">
       <i class="fa-solid fa-paper-plane"></i> Contact Me
     </a>
-    
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Mobile nav toggle
@@ -1479,4 +1480,3 @@
     </script>
   </body>
 </html>
-
