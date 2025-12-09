@@ -1,861 +1,1481 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anees Mufti - Software Engineer Portfolio</title>
+    <meta
+      name="description"
+      content="The portfolio of Anees Mufti, a software engineer showcasing projects, skills, and experience in technology and innovation."
+    />
+    <meta
+      name="keywords"
+      content="Anees Mufti, software engineer, portfolio, projects, tech, innovation, quality assurance, automation"
+    />
+    <meta name="author" content="Anees Mufti" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anees Mufti</title>
+    <style>
+      :root {
+        --bg: #0b0b0b;
+        --text: #f5f5f7;
+        --muted: #a3a3a3;
+        --accent: #0b0b0b;
+        --badge-accent: #38b000;
+        --container-max: 1200px;
+        --linkedin-blue: #0a66c2;
+        --upwork-green: #6fda44;
+        --github-purple: #9b59b6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        /* scroll-behavior: smooth ensures the floating CTA scrolls nicely */
+        scroll-behavior: smooth;
+        scroll-padding-top: 84px;
+        height: 100%;
+        overflow-y: scroll;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100%;
+      }
+      .container {
+        width: 90%;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg);
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0);
+      }
+      .site-header > .container {
+        display: flex;
+        align-items: center;
+        /* MODIFICATION: Centering the remaining navigation items */
+        justify-content: center;
+        padding: 20px 0;
+      }
+      .logo {
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 14px;
+      }
+      .main-nav ul {
+        display: flex;
+        gap: 22px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .main-nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+      }
+      .main-nav a:hover,
+      .main-nav a:focus {
+        opacity: 1;
+      }
+      .main-nav a:focus {
+        outline: 3px solid rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+      }
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: 0;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      /* Removed .availability-badge CSS as it is removed from HTML */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 24px;
+      }
+      .hero-inner {
+        text-align: center;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .hero-name {
+        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+          "Courier New", monospace;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        font-size: clamp(36px, 8vw, 72px);
+        margin-top: 0;
+      }
+      .hero-role {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .hero-motto {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        font-size: clamp(20px, 4vw, 32px);
+        font-weight: 600;
+        line-height: 1.4;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        color: var(--text);
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .role-text {
+        display: inline-block;
+        transition: opacity 420ms ease, transform 420ms ease;
+      }
+      .role-hidden {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      .cta-buttons {
+        margin-top: 0;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 1000px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn i {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        color: var(--bg);
+        background: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 6px 14px rgba(255, 255, 255, 0.06);
+      }
+      .btn-primary:hover {
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12);
+      }
+      .btn-secondary {
+        color: var(--text);
+        background: transparent;
+        border: 1px solid rgb(255, 255, 255);
+      }
+      .btn:focus {
+        outline: 3px solid rgba(255, 255, 255, 0.06);
+      }
+      main {
+        background: var(--bg);
+        padding: 64px 0 0;
+      }
+      section {
+        padding: 64px 0;
+      }
+      section h2 {
+        font-size: 28px;
+        color: var(--text);
+        margin-bottom: 16px;
+        font-weight: 700;
+        text-align: center;
+      }
+      section h3 {
+        font-size: 20px;
+        color: var(--text);
+        margin: 24px 0 12px;
+        font-weight: 600;
+      }
+      section p {
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      section ul {
+        line-height: 1.8;
+      }
+      section a {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+      section a:hover {
+        opacity: 0.8;
+      }
+      #about .container {
+        text-align: center;
+      }
+      #about p {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      #about h3 {
+        text-align: center;
+        margin-top: 40px;
+      }
+      #about ul {
+        display: inline-block;
+        padding-left: 0;
+        list-style-type: none;
+      }
+      #about ul li {
+        text-align: left;
+        list-style-type: disc;
+        list-style-position: inside;
+      }
+      #experience {
+      }
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: var(--muted);
+        opacity: 0.2;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+      }
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        margin-bottom: 50px;
+      }
+      .timeline-content {
+        background: var(--bg);
+        padding: 25px;
+        border-radius: 34px;
+        border: 1px solid var(--text);
+        transition: transform 0.3s ease;
+      }
+      .timeline-content:hover {
+        box-shadow: none;
+      }
+      .timeline-content h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        text-align: left;
+        color: var(--text);
+      }
+      .company-name {
+        color: var(--muted);
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      .timeline-content ul,
+      .timeline-content p {
+        text-align: left;
+        margin-left: 0;
+        padding-left: 0;
+        list-style-type: none;
+      }
+      .timeline-content ul li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 30px;
+      }
+      .timeline-content ul li::before {
+        content: "⚪";
+        color: var(--text);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .timeline-content.left {
+        text-align: right;
+      }
+      .timeline-item:nth-child(even) {
+        left: 0;
+        padding-right: 30px;
+      }
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-right: 30px;
+      }
+      .timeline-content.right {
+        text-align: left;
+      }
+      .timeline-item:nth-child(odd) {
+        left: 50%;
+        padding-left: 30px;
+      }
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: 30px;
+      }
+      @media screen and (max-width: 768px) {
+        .timeline::after {
+          left: 10px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 40px;
+          padding-right: 10px;
+          left: 0% !important;
+        }
+        .timeline-item:nth-child(even),
+        .timeline-item:nth-child(odd) {
+          padding-right: 10px;
+        }
+        .timeline-item:nth-child(even) .timeline-content,
+        .timeline-item:nth-child(odd) .timeline-content {
+          margin-right: 0;
+          margin-left: 0;
+        }
+        .timeline-content {
+          text-align: left !important;
+        }
+      }
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+      /* --- EDUCATION SECTION STYLES --- */
+      #education {
+        /* Inherits padding from generic section style */
+      }
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+      .education-item {
+        background: #18181b;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        flex-direction: column;
+      }
 
-<body>
+      .education-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+      }
 
-  <!--
-    - #MAIN
-  -->
+      .education-item h3 {
+        margin-top: 0;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
 
-  <main>
+      .education-degree {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 4px 0;
+      }
 
-    <!--
-      - #SIDEBAR
-    -->
+      .education-duration {
+        font-size: 14px;
+        font-style: italic;
+        color: var(--muted);
+        margin: 0 0 16px 0;
+      }
 
-    <aside class="sidebar" data-sidebar>
+      .education-note {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      /* End of #education CSS */
 
-      <div class="sidebar-info">
+      /* --- PUBLICATIONS SECTION STYLES --- */
+      #publications {
+        text-align: center; /* Center the whole section content */
+      }
 
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Mufti Anees-Ur-Rahman" width="80">
-        </figure>
+      .publication-card-container {
+        max-width: 800px; /* Limit width */
+        margin: 0 auto; /* Center the container */
+        padding: 20px 0;
+      }
 
-        <div class="info-content">
-          <h1 class="name" title="Mufti Anees-Ur-Rahman">Anees Mufti</h1>
+      .publication-card-link {
+        /* Makes the anchor tag display as a block to fill the container, 
+		and removes the default link appearance. */
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
 
-          <p class="title">UX/UI Designer<br>Graphics Designer</p>
-        </div>
-        
+      .publication-card {
+        /* Retain original background color */
+        background: #0b0b0b;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #f5f5f7;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        text-align: center; /* Center text within the card */
+      }
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+      /* Apply hover effects (lift/shadow) to the card when the link is hovered */
+      .publication-card-link:hover .publication-card {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+      }
 
-          <ion-icon name="chevron-down"></ion-icon>
+      /* REMOVED: .publication-card-link:hover .publication-title { color: var(--badge-accent); }
+		The title color will remain var(--text) */
+
+      .publication-title {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        font-weight: 700;
+        font-style: normal; /* Non-italic */
+        /* Explicit color remains default text color on hover */
+        color: var(--text);
+        transition: color 0.2s ease;
+      }
+
+      .publication-description {
+        color: var(--muted);
+        font-size: 15px;
+        margin: 4px auto 0 auto;
+        /* Non-italic */
+        padding-left: 0;
+        font-style: normal;
+        max-width: 90%;
+      }
+      /* End of #publications CSS */
+
+      /* --- METRICS / INFOGRAPHICS SECTION STYLES --- */
+
+      .metrics-section {
+        padding: 64px 0;
+        text-align: center;
+      }
+
+      .metrics-section .section-description {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 40px;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .metric-card,
+      .chart-card {
+        background: #18181b; /* Darker background than the main site for contrast */
+        border-radius: 12px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .metric-card:hover,
+      .chart-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+      }
+
+      .metric-value {
+        font-size: 64px;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+
+      .metric-unit {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+
+      .metric-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        color: var(--text);
+        text-align: center;
+      }
+
+      /* --- Pie Chart Specific Styles --- */
+
+      .chart-card {
+        padding: 20px;
+      }
+
+      .chart-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .pie-container {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 25px;
+        position: relative;
+      }
+
+      .pie-chart {
+        --val: 0; /* Custom property for the percentage value */
+        --deg: calc(var(--val) * 3.6deg);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: relative;
+        /* Magic to draw the pie chart using conical gradient */
+        background: conic-gradient(
+          var(--badge-accent) var(--deg),
+          rgba(255, 255, 255, 0.1) var(--deg)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pie-chart::before {
+        content: "";
+        position: absolute;
+        background: #18181b; /* Same as card background to create the ring effect */
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+      }
+
+      .chart-label {
+        position: relative;
+        z-index: 10;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      /* Specific adjustments for the Quality Pie Chart (95%) */
+      .pie-quality {
+        --val: 95;
+        background: conic-gradient(
+          var(--badge-accent) calc(var(--val) * 3.6deg),
+          rgba(255, 255, 255, 0.1) calc(var(--val) * 3.6deg)
+        );
+      }
+
+      /* Specific adjustments for the Delivery/Satisfaction Pie Chart (4.8/5.0) 
+		We treat 4.8/5 as 96% for the chart visual (4.8 * 20) */
+      .pie-delivery {
+        --val: 96; /* 4.8 out of 5 is 96% */
+        background: conic-gradient(
+          var(--linkedin-blue) calc(var(--val) * 3.6deg),
+          rgba(255, 255, 255, 0.1) calc(var(--val) * 3.6deg)
+        );
+      }
+
+      .chart-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin: 0;
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .chart-list li {
+        margin-bottom: 8px;
+      }
+
+      /* --- Bar Chart Specific Styles for Automation Coverage (NEW) --- */
+
+      .chart-card.chart-automation {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bar-chart-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto 25px;
+      }
+
+      .bar-item {
+        margin-bottom: 12px;
+      }
+
+      .bar-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .bar-bg {
+        background: rgba(255, 255, 255, 0.1);
+        height: 18px;
+        border-radius: 999px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        width: var(--percent); /* Takes value from inline style in HTML */
+        border-radius: 999px;
+        color: var(--bg); /* Dark text on bright bar */
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 18px;
+        text-align: right;
+        padding-right: 6px;
+        transition: width 1s ease-out; /* Add animation effect */
+      }
+
+      /* Specific bar colors */
+      .bar-e2e {
+        background: var(--badge-accent); /* Green */
+      }
+      .bar-api {
+        background: var(--linkedin-blue); /* Blue */
+      }
+      .bar-unit {
+        background: var(--github-purple); /* Purple */
+        color: var(--text); /* Lighter text on purple for better contrast */
+        padding-left: 6px;
+        text-align: left;
+      }
+
+      .chart-footnote {
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+        margin: 0;
+      }
+      /* End of #metrics CSS */
+
+      /* FIX 1: Removed bottom padding from the contact section */
+      #contact {
+        padding: 64px 0 0;
+      }
+      #contact .container {
+        text-align: center;
+      }
+      .contact-subheading {
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+      .social-links {
+        margin: 0 auto;
+        display: inline-block;
+      }
+      .email-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text);
+        text-decoration: none;
+        gap: 12px;
+        margin-bottom: 20px;
+        transition: background 0.2s ease;
+      }
+      .email-link:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .email-link i {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: var(--text);
+      }
+      .contact-social-row {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+      }
+      .contact-social-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+      .contact-social-item:hover {
+        color: var(--text);
+      }
+      .contact-social-item i {
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+        color: var(--muted);
+        transition: color 0.2s ease;
+        margin-bottom: 4px;
+      }
+      .contact-social-item:hover i {
+        color: var(--text);
+      }
+      a[href*="linkedin.com"]:hover {
+        color: var(--linkedin-blue);
+      }
+      a[href*="linkedin.com"]:hover i {
+        color: var(--linkedin-blue);
+      }
+      a[href*="upwork.com"]:hover {
+        color: var(--upwork-green);
+      }
+      a[href*="upwork.com"]:hover i {
+        color: var(--upwork-green);
+      }
+      a[href*="github.com"]:hover {
+        color: var(--github-purple);
+      }
+      a[href*="github.com"]:hover i {
+        color: var(--github-purple);
+      }
+      .contact-footer {
+        /* MODIFICATION 3: Added 36px bottom padding inside the footer */
+        padding: 36px 0 36px;
+        text-align: center;
+        color: var(--muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        margin-top: 40px;
+      }
+      .contact-footer p {
+        margin: 4px 0;
+      }
+      /* FIX 3: Removed margin from the very last paragraph in the footer */
+      .contact-footer p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* --- Floating CTA Button Style (NEW) --- */
+
+      .floating-cta {
+          /* Positioning */
+          position: fixed;
+          bottom: 25px;
+          right: 25px;
+          z-index: 1000; /* Ensure it floats above everything */
+
+          /* Styling - Based on btn-primary for visual prominence */
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 20px;
+          border-radius: 1000px;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 16px;
+          
+          /* Colors */
+          color: var(--bg); /* Dark text */
+          background: var(--text); /* Light background */
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2); /* Stronger shadow for floating effect */
+
+          /* Transitions & Hover */
+          transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+      }
+
+      .floating-cta:hover {
+          transform: translateY(-4px); /* Lift higher on hover */
+          box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+      }
+
+      .floating-cta i {
+          font-size: 18px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .role-text,
+        .btn,
+        .education-item,
+        .main-nav a,
+        .email-link,
+        .contact-social-item,
+        .timeline-content,
+        .bar-fill,
+        .floating-cta { /* Added floating-cta */
+          transition: none !important;
+        }
+        html {
+          scroll-behavior: auto;
+          scroll-snap-type: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .main-nav ul {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+          /* If you wanted it aligned right on mobile, you would need to adjust the container flex properties too: */
+          /* .site-header > .container { justify-content: space-between; } */
+        }
+        .main-nav {
+          position: absolute;
+          top: 72px;
+          right: 24px;
+          background: var(--bg);
+          border-radius: 8px;
+          padding: 12px 18px;
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
+          display: none;
+        }
+        .main-nav.open {
+          display: block;
+        }
+        .main-nav.open ul {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .logo {
+          font-size: 13px;
+        }
+        .hero {
+          padding: 80px 18px;
+        }
+        .hero-motto {
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: clamp(18px, 4.5vw, 24px);
+        }
+        .cta-buttons {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 0;
+        }
+        /* REMOVED: .availability-badge { display: none; } */
+      }
+      @media (max-width: 480px) {
+        .hero-name {
+          font-size: clamp(28px, 18vw, 44px);
+        }
+        .hero-role {
+          font-size: 16px;
+        }
+        .contact-social-row {
+          gap: 15px;
+        }
+        .email-link {
+          font-size: 16px;
+          padding: 10px 14px;
+        }
+        .email-link span {
+          display: none;
+        }
+        .floating-cta {
+          bottom: 15px;
+          right: 15px;
+          padding: 10px 16px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <button
+          class="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          ☰
         </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-        
-        <ul class="contacts-list">
-          <ul class="social-list">
-            <li class="social-item">
-              <a href="https://www.figma.com/@aneesmufti" class="social-link">
-                <ion-icon name="logo-figma"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://dribbble.com/aneesmufti" class="social-link">
-                <ion-icon name="logo-dribbble"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://www.fiverr.com/aneesmufti" class="social-link">
-                <ion-icon name="bag-handle-outline"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://www.upwork.com/freelancers/~0146fa4a7fc7351777" class="social-link">
-                <ion-icon name="bag-add-outline"></ion-icon>
-              </a>
-            </li>
-            <!-- <li class="social-item">
-              <a href="https://github.com/MuftiAnees" class="social-link">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li> -->
-            <li class="social-item">
-              <a href="./assets/Anees Mufti CV.pdf" class="social-link" download="Anees Mufti CV">
-                <ion-icon name="download-outline"></ion-icon>
-              </a>
-            </li>
-            
-            <!-- <li class="social-item">
-              <a href="https://www.instagram.com/aneesmufti/" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li> -->
-            <!-- <li class="social-item">
-              <a href="https://www.youtube.com/channel/UCs8f1mSnrBKyUjZKRySH7Pw" class="social-link">
-                <ion-icon name="logo-youtube"></ion-icon>
-              </a>
-            </li> -->
-            
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#metrics">Metrics</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-          
-          
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:muftianees7@gmail.com" class="contact-link">muftianees7@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+923025522334" class="contact-link">+92 302 5522334</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1995-08-27">27 August, 1995</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Islamabad, Pakistan</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I'm a passionate UX/UI and Graphics designer, creating user-centric interfaces and designs that drive engagement and impact. Throughout my career, I've had the opportunity to work on diverse projects like E commerce stores, Dating Apps, Food apps, website designs, etc, consistently achieving positive outcomes from both the client side and mine.
-          </p>
-          <p>
-          My design philosophy centers around simplicity, accessibility and user centered design. I believe in Human centered design, user experience and user interaction. This combined with my skills in wireframing, visual and interaction designing, allows me to deliver effective and beautiful solutions that resonate with users.
-          </p>
-          <p>
-          Whether you're looking for a designer to work on a websites or applictions, I'm confident I can bring a unique perspective and impactful results to your team.
-          <p>
-          <p>
-          Ready to explore my work? Dive into my portfolio to see how I translate user needs into intuitive and engaging experiences.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I can do</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">UX/UI Designing</h4>
-
-                <p class="service-item-text">
-                  Professional development of beautiful user interfaces for iOS, Mac, Android and PC applications and websites. Making prototoyes for both the clients and developers understanding.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Graphics Designing</h4>
-
-                <p class="service-item-text">
-                  I make high-quality designs of any category at a professional level ranging from advertisements, Social media posts and E commerce store/product pages and even logos.
-                </p>
-              </div>
-
-            </li>
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Software Quality Assurance</h4>
-
-                <p class="service-item-text">
-                  Testing apps, websites for bugs, defects and general issues that impact the user experience or overall stability.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Automated Testing</h4>
-
-                <p class="service-item-text">
-                  High-quality development of automated tests to speed up the testing process and give results quicker than possible by humans.
-                </p>
-              </div>
-
-            </li>
-
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Alan" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Alan</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I only had a vague concept of the visual that I wanted, and Anees Mufti was very patient and systematic in his approach. The result was great!! Highly recommended.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Basheir" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Clara</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Excellent designer, creative and dedicated and comes with the perfect solution in a short period of time. Highly recommended.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Galli</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    He is very patient and explains very well about the questions. Smooth Communication, Fast delivery. Very Kind.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Matt</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Amazing work! So kind and wonderful to work with. Presented lots of options and got my project exactly how I needed -- even elevating it to a better level. Highly recommend and will work with again. Thanks!
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Anees Mufti</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
+        </nav>
         </div>
-      </article>
+    </header>
 
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-name">Anees Mufti</h1>
 
+        <p class="hero-role">
+          <span id="role" class="role-text"
+            >Software Quality Assurance Engineer</span
+          >
+        </p>
 
+        <p class="hero-motto">
+          The standard is non-negotiable excellence, and I guarantee it through
+          automation.
+        </p>
 
+        <div class="cta-buttons">
+          <a
+            class="btn btn-primary"
+            href="assets/Anees-Mufti-CV.pdf"
+            download="Anees-Mufti-CV.pdf"
+            aria-label="Download CV"
+          >
+            <i class="fa-solid fa-file-arrow-down"></i>
+            Download CV
+          </a>
+          <a class="btn btn-secondary" href="#contact" aria-label="Contact me">
+            <i class="fa-solid fa-envelope"></i>
+            Contact me
+          </a>
+        </div>
+      </div>
+    </section>
+    <main>
+      <section id="about">
+        <div class="container">
+          <h2>About my work</h2>
 
-      <!--
-        - #RESUME
-      -->
+          <p>
+            I am a Software Quality Assurance Engineer focused on
+            <strong>Test Architecture</strong> and automation efficiency. With
+            nearly three years of experience, I specialize in designing and
+            deploying end-to-end frameworks (Selenium/C#) to achieve
+            <strong>non-negotiable quality</strong>. My work consistently
+            reduces manual effort, accelerates releases, and ensures robust
+            functionality for high-impact applications, contributing to
+            <strong>100% test success rates</strong> for major clients.
+          </p>
 
-      <article class="resume" data-page="resume">
+          <h3>Core Expertise & Technologies</h3>
+          <ul class="skills-list">
+            <li><strong>Languages:</strong> C#, Python, JavaScript, Java</li>
+            <li>
+              <strong>Automation Frameworks:</strong> Selenium, Postman, Rest
+              Assured
+            </li>
+            <li>
+              <strong>Methodologies:</strong> Agile, CI/CD Integration
+              (GitLab/GitHub Actions)
+            </li>
+            <li>
+              <strong>Testing Types:</strong> Functional, Regression, E2E,
+              Performance, API, AI Feature Validation
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="container">
+          <h2>Professional Experience</h2>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content right">
+                <h3>Software Test Engineer</h3>
+                <p class="company-name">
+                  Geeks Ltd | December 2024 - November 2025 (1 year)
+                </p>
+                <ul>
+                  <li>
+                    Led E2E quality assurance for
+                    <strong>AI-driven and enterprise applications</strong>,
+                    ensuring system reliability and optimal AI model
+                    performance.
+                  </li>
+                  <li>
+                    Architected and maintained automated test frameworks using
+                    <strong>Selenium and C#</strong>, integrating them into
+                    continuous integration and agile release pipelines.
+                  </li>
+                  <li>
+                    Developed and executed
+                    <strong>2,730 manual and automated test cases</strong>,
+                    achieving an overall pass rate above 80%, with three major
+                    projects reaching a <strong>100% test success rate</strong>.
+                  </li>
+                  <li>
+                    Logged <strong>1,365 detailed defect reports</strong> with
+                    supporting artifacts (screenshots/recordings), which
+                    significantly enhanced bug visibility and reduced issue
+                    resolution time.
+                  </li>
+                  <li>
+                    Supported high-impact solutions for globally recognized
+                    clients (e.g.,
+                    <strong>BBC, Dyson, UK Houses of Parliament</strong>),
+                    reinforcing the company’s reputation for AI-enabled
+                    innovation.
+                  </li>
+                </ul>
+              </div>
+            </article>
 
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content left">
+                <h3>Quality Assurance Automation Engineer</h3>
+                <p class="company-name">
+                  ProgNeo | March 2024 - December 2024 (10 months)
+                </p>
+                <ul>
+                  <li>
+                    Performed QA and automation engineering across a diverse
+                    application portfolio.
+                  </li>
+                  <li>
+                    Tested and verified various app categories, including
+                    e-commerce, legal/lawyer, mobile (makeup), and auditing
+                    applications.
+                  </li>
+                  <li>
+                    Executed functional and regression testing for both web and
+                    mobile platforms.
+                  </li>
+                  <li>
+                    Designed and implemented automated test scripts to
+                    accelerate quality validation.
+                  </li>
+                  <li>
+                    Contributed to multi-platform stability by identifying key
+                    defects across specialized client software.
+                  </li>
+                </ul>
+              </div>
+            </article>
 
-        <section class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content right">
+                <h3>Quality Assurance Automation Engineer (Team Lead)</h3>
+                <p class="company-name">
+                  Center for Advanced Research in Engineering (CARE) | December
+                  2022 - March 2024 (1 year 4 months)
+                </p>
+                <ul>
+                  <li>
+                    Directed QA team and implemented comprehensive testing
+                    strategies for a major
+                    <strong>Enterprise Resource Planning (ERP) system</strong>,
+                    managing all manual and automated testing cycles.
+                  </li>
+                  <li>
+                    Accelerated quality delivery by serving as the
+                    <strong>solo Automation Engineer for three months</strong>,
+                    automating a significant portion of the ERP application to
+                    streamline release pipelines.
+                  </li>
+                  <li>
+                    Spearheaded defect resolution across critical modules (HRM,
+                    Finance, Inventory, etc.), overseeing the management and
+                    closure of <strong>1,700+ bug reports</strong> to drive
+                    product quality.
+                  </li>
+                  <li>
+                    Contributed key expertise to the entire product lifecycle,
+                    leveraging automation and early defect identification to
+                    ensure system stability and optimize the user experience.
+                  </li>
+                </ul>
+              </div>
+            </article>
 
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content left">
+                <h3>UX/UI Designer (Part-time)</h3>
+                <p class="company-name">
+                  Future Vision DevSol | Sep 2022 - Nov 2022 (3 months)
+                </p>
+                <ul>
+                  <li>
+                    Served as the sole UX/UI Designer, owning and executing the
+                    end-to-end design process at Future Vision Devsol.
+                  </li>
+                  <li>
+                    Delivered comprehensive design solutions, including crafting
+                    highly intuitive user interfaces (UI) and developing
+                    visually compelling graphics.
+                  </li>
+                  <li>
+                    Established and maintained the company’s overall design
+                    strategy, ensuring a seamless, high-quality user experience
+                    (UX) across all digital platforms.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content right">
+                <h3>Research Scholar & Graphic Designer</h3>
+                <p class="company-name">
+                  National University of Sciences and Technology (NUST) | Dec
+                  2021 - Feb 2022 (3 months)
+                </p>
+
+                <h4>Graphic Designer (Full-time)</h4>
+                <ul>
+                  <li>
+                    Demonstrated exceptional graphic design skills while working
+                    as a Graphics Designer for the armed forces.
+                  </li>
+                  <li>
+                    Successfully delivered high-quality visual materials,
+                    including videos, presentations, posters, and images, that
+                    effectively communicated key messages to the target
+                    audience.
+                  </li>
+                  <li>
+                    Contributed to the Army's visual identity and ensured
+                    compliance with branding standards.
+                  </li>
+                </ul>
+
+                <h4>Research Scholar</h4>
+                <ul>
+                  <li>
+                    Successfully served as a research scholar, contributing to
+                    cutting-edge research projects. Proficient in conducting
+                    in-depth research, writing scholarly papers, and creating
+                    compelling visuals.
+                  </li>
+                  <li>
+                    Utilized LaTeX to efficiently prepare and format academic
+                    documents.
+                  </li>
+                  <li>
+                    Demonstrated strong analytical skills and attention to
+                    detail, ensuring the accuracy and quality of research
+                    outputs.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="metrics" class="metrics-section">
+        <div class="container">
+          <h2>My Impact & Metrics</h2>
+          <p class="section-description">
+            Quantifying my commitment to speed, quality, and results.
+          </p>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-value">3</span>
+              <span class="metric-unit">Years</span>
+              <h3 class="metric-title">Professional Experience</h3>
             </div>
 
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Masters in Software Engineering</h4>
-
-              <span>National University of Sciences and Technology</span>
-              <span>2019 — 2022</span>
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Bachelors in Computer Science</h4>
-              <span>HITEC University</span>
-              <span>2015 — 2019</span>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+            <div class="metric-card">
+              <span class="metric-value">30+</span>
+              <span class="metric-unit">Projects</span>
+              <h3 class="metric-title">Delivered & Launched</h3>
             </div>
 
-            <h3 class="h3">Experience</h3>
+            <div class="metric-card">
+              <span class="metric-value">2,500+</span>
+              <span class="metric-unit">Bugs</span>
+              <h3 class="metric-title">Defects Resolved</h3>
+            </div>
+
+            <div class="chart-card chart-quality">
+              <h3 class="chart-title">Code Quality & Contribution</h3>
+              <div class="pie-container">
+                <div class="pie-chart pie-quality" style="--val: 95">
+                  <span class="chart-label">95%</span>
+                </div>
+              </div>
+              <ul class="chart-list">
+                <li><strong>Code Coverage:</strong> 95%</li>
+                <li><strong>Pull Requests Merged:</strong> 320</li>
+              </ul>
+            </div>
+
+            <div class="chart-card chart-delivery">
+              <h3 class="chart-title">Delivery & Client Focus</h3>
+              <div class="pie-container">
+                <div class="pie-chart pie-delivery" style="--val: 96">
+                  <span class="chart-label">4.8/5</span>
+                </div>
+              </div>
+              <ul class="chart-list">
+                <li><strong>Client Satisfaction:</strong> 4.8/5.0</li>
+                <li><strong>Performance Boost:</strong> 30%</li>
+              </ul>
+            </div>
+
+            <div class="chart-card chart-automation">
+              <h3 class="chart-title">Automation Coverage by Type</h3>
+              <div class="bar-chart-container">
+                <div class="bar-item">
+                  <span class="bar-label">E2E (Selenium)</span>
+                  <div class="bar-bg">
+                    <div class="bar-fill bar-e2e" style="--percent: 93%">
+                      93%
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-item">
+                  <span class="bar-label">Test case Reusability</span>
+                  <div class="bar-bg">
+                    <div class="bar-fill bar-api" style="--percent: 90%">
+                      90%
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-item">
+                  <span class="bar-label">Flakiness Reduction</span>
+                  <div class="bar-bg">
+                    <div class="bar-fill bar-unit" style="--percent: 85%">
+                      85%
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="chart-footnote">
+                Focus on high-value, stable E2E and 100% API coverage.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="container">
+          <h2>Publications</h2>
+          <div class="publication-card-container">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S2667305325000675?via%3Dihub"
+              target="_blank"
+              class="publication-card-link"
+            >
+              <div class="publication-card">
+                <p class="publication-title">
+                  A review of neuro-symbolic AI integrating reasoning and
+                  learning for advanced cognitive systems
+                </p>
+                <p class="publication-description">
+                  This systematic review focuses on
+                  <strong>Neuro-Symbolic AI (NeSy)</strong>, integrating deep
+                  learning with symbolic reasoning to enhance system
+                  <strong>interpretability</strong> and
+                  <strong>logical deduction</strong>. It evaluates NeSy
+                  frameworks for complex cognitive tasks, providing a roadmap
+                  for developing <strong>trustworthy and scalable</strong> AI.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="education-grid">
+            <article class="education-item">
+              <h3>National University of Sciences and Technology (NUST)</h3>
+              <p class="education-degree">
+                Master's degree, Computer Software Engineering
+              </p>
+              <p class="education-duration">October 2019 – September 2022</p>
+              <p class="education-note">
+                Focused on advanced software design, quality assurance, and
+                automated testing methodologies.
+              </p>
+            </article>
+
+            <article class="education-item">
+              <h3>HITEC University Taxila</h3>
+              <p class="education-degree">
+                Bachelor of Science - BS, Computer Science
+              </p>
+              <p class="education-duration">September 2015 – July 2019</p>
+              <p class="education-note">
+                Comprehensive study in algorithms, data structures, and
+                fundamental programming concepts.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>Contact Me</h2>
+          <p class="contact-subheading">
+            I am currently available for new projects and collaborations. Let's
+            connect and discuss your next challenge.
+          </p>
+
+          <div class="social-links">
+            <a
+              href="mailto:muftianees7@gmail.com"
+              class="contact-link email-link"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              <span>Get in touch</span>
+            </a>
           </div>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Senior UX/UI Designer</h4>
-
-              <span>2024 — Present</span>
-
-              <p class="timeline-text">
-                As the Senior User Interface and Experience Designer at <u>Progneo</u>, I stand as the champion of human-centered design. Wielding a blend of research, empathy, and pixel-perfect visuals, I craft digital experiences that not only function flawlessly but resonate deeply with users. My mission is to guide them on a seamless journey, ensuring every interaction delights and empowers. I don't just eliminate friction points; I build bridges of understanding, forging lasting connections between users and the products they love.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Freelance UX/UI Designer</h4>
-
-              <span>2019 — Present</span>
-
-              <p class="timeline-text">
-                Multiple years of crafting beautiful, efficient experiences on the <u>Freelance marketplace</u>. My UX/UI journey starts with user empathy, weaving research into elegant solutions. From wireframes to visuals, I obsess over every pixel, ensuring technology delights as much as it delivers. Let's create together. 
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Software Quality Assurance and Automation Engineer</h4>
-
-              <span>2022 — 2024</span>
-
-              <p class="timeline-text">
-                I've been the silent guardian of software quality at <u>Center for Advanced Research in Engineering (CARE) Pvt Ltd</u>. Donning the mantle of a Software Quality Assurance Engineer, I meticulously wield both cutting-edge automation and keen-eyed manual testing to refine every facet of our applications. My unwavering commitment is to deliver polished, user-centric solutions that exceed client expectations. It's not just about eliminating bugs; it's about crafting harmonious software experiences that resonate with users.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">UX/UI Designer</h4>
-
-              <span>2022 — 2022</span>
-
-              <p class="timeline-text">
-                Worked as a UX/UI Designer for both web applications and mobile applications, with a company called <u>Future Vision Devsol</u>. Worked on multiple projects
-                and various different designs which encompassed  mobiles, tablets, Apple devices, android devices and Desktops/ Laptop versions.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Graphics designer</h4>
-
-              <span>2021 — 2022</span>
-
-              <p class="timeline-text">
-                Worked as a Graphics Designer and a Research assistant at <u>National University of Sciences and Technology</u>.
-                Worked on multiple projects for the University, made videos on different projects, helped direct videos and finally edited them and made custom graphics for them.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Research Assistant</h4>
-
-              <span>2021 — 2022</span>
-
-              <p class="timeline-text">
-                Worked as a Research assistant and a Graphics Designer at <u>National University of Sciences and Technology</u>.
-                I helped write research papers, made images for them which made them attractive to look at and also helped in publishing some papers.
-
-              </p>
-
-            </li>
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">UX/UI Designing</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Logo Designing</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphics design</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Software Quality assurance</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Automation Testing</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Automation</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>UI and UX</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Graphics Design</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Automation</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>ui and ux</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>graphics design</button>
-              </li>
-
-            </ul>
-
+          <div class="contact-social-row">
+            <a
+              href="https://www.linkedin.com/in/aneesmufti/"
+              target="_blank"
+              class="contact-social-item"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/MuftiAnees"
+              target="_blank"
+              class="contact-social-item"
+            >
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href="https://www.upwork.com/freelancers/~0146fa4a7fc7351777"
+              target="_blank"
+              class="contact-social-item"
+            >
+              <i class="fa-brands fa-upwork"></i>
+              <span>Upwork</span>
+            </a>
           </div>
 
-          <ul class="project-list">
+          <div class="contact-footer">
+            <p>Made with ❤️ by Anees Mufti.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <a href="#contact" class="floating-cta" aria-label="Contact Me">
+      <i class="fa-solid fa-paper-plane"></i> Contact Me
+    </a>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile nav toggle
+        const btn = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".main-nav");
+        if (btn && nav) {
+          btn.addEventListener("click", () => {
+            const open = nav.classList.toggle("open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
 
-            <!-- <li class="project-item  active" data-filter-item data-category="automation">
-              <a href="https://github.com/MuftiAnees?tab=repositories" target="_blank">
+        // Rotating role titles
+        const roles = [
+          "Software Quality Assurance Engineer",
+          "Software Developer Engineer in Test",
+          "AI Tester",
+          "Automation Engineer",
+        ];
+        let roleIndex = 0;
+        const roleEl = document.getElementById("role");
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+        if (roleEl) {
+          const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
 
-                  <img src="./assets/images/project-1.jpg" alt="code" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Github</h3>
-
-                <p class="project-category">Automation</p>
-
-              </a>
-            </li> -->
-
-            <li class="project-item  active" data-filter-item data-category="ui and ux">
-              <a href="https://www.figma.com/@aneesmufti" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="ren" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Figma</h3>
-
-                <p class="project-category">UX/UI-Design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="ui and ux">
-              <a href="https://dribbble.com/aneesmufti" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="shtuff" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Dribbble</h3>
-
-                <p class="project-category">UX/UI-Design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="graphics design">
-              <a href="https://www.instagram.com/aneesmufti/" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="cube" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Art</h3>
-
-                <p class="project-category">Graphics Design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="graphics design">
-              <a href="https://www.youtube.com/channel/UCs8f1mSnrBKyUjZKRySH7Pw" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="premier" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Art Videos</h3>
-
-                <p class="project-category">Graphics Design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="graphics design">
-              <a href="https://www.fiverr.com/aneesmufti" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="fiverr" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fiverr</h3>
-
-                <p class="project-category">Graphics Design</p>
-
-              </a>
-            </li>
-          </ul>
-
-        </section>
-
-      </article>
-
-    </div>
-
-  </main>
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
+          if (!reduceMotion) {
+            setInterval(() => {
+              roleEl.classList.add("role-hidden");
+              setTimeout(() => {
+                roleIndex = (roleIndex + 1) % roles.length;
+                roleEl.textContent = roles[roleIndex];
+                roleEl.classList.remove("role-hidden");
+              }, 420);
+            }, 3000);
+          } else {
+            setInterval(() => {
+              roleIndex = (roleIndex + 1) % roles.length;
+              roleEl.textContent = roles[roleIndex];
+            }, 3000);
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
