@@ -70,11 +70,12 @@ body {
   font-weight: 600;
   opacity: 1; /* Removed initial opacity 0.9 */
   /* Added transitions for the new hover effects (background, transform, shadow) */
-  transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
   /* NEW: Added base padding and border-radius */
-  padding: 4px 8px; 
+  padding: 4px 8px;
   border-radius: 6px;
-  display: inline-block; 
+  display: inline-block;
 }
 .main-nav a:hover,
 .main-nav a:focus {
@@ -98,6 +99,14 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 24px;
+
+  /* NEW: Subtle Dot Matrix Background using repeating radial gradient */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px; /* Adjust spacing between dots */
 }
 .hero-inner {
   text-align: center;
@@ -247,12 +256,12 @@ section a:hover {
 #experience {
   /* Layer 1: Radial gradient mask that fades the background to black at the edges. */
   /* Layer 2: The repeating SVG pattern */
-  background-image: 
-    radial-gradient(circle at center, 
-        rgba(11, 11, 11, 0) 50%, 
-        rgba(11, 11, 11, 1) 100% 
+  background-image: radial-gradient(
+      circle at center,
+      rgba(11, 11, 11, 0) 50%,
+      rgba(11, 11, 11, 1) 100%
     ),
-    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBvcGFjaXR5PSIwLjA1IiBmaWxsPSIjRkY3Ij4KICAgIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMiIC8+IC8qIENoZWNrLUNpcmNsZSAqLwogICAgPHJlY3QgeD0iNTMiIHk9IjI4IiB3aWR0aD0iNSIgaGVpZ2h0PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAzMSAzMSkiIC8+IC8qIENvZGUtQnJhY2tldCAoTGVmdCkgKi8KICAgIDxyZWN0IHg9IjU1IiB5PSIxOSIgd2lkdGg9IjUiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDM0IDI4KSIgLz4gLyogQ29kZS1CcmFja2V0IChSaWdodCkgKi8KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iNTgiIHI9IjMiIC8+IC8qIFBlbiBUb29sICovCiAgPC9nPgo8L3N2Zz4=");
+    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBvcGFjaXR5PSIwLjA1IiBmaWxsPSIjRkY3Ij4KICAgIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMiIC8+IC8qIENoZWNrLUNpcmNsZSAqLwogICAgPHJlY3QgeD0iNTMiIHk9IjI4IiB3aWR0aD0iNSIgaGVpZ2h0PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAzMSAzMSkiIC8+IC8qIENvZGUtQnJhY2tldCAoTGVmdCkgKi8KICAgIDxyZWN0IHg9IjU1IiB5PSIyMCIgd2lkdGg9IjUiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDM0IDI4KSIgLz4gLyogQ29kZS1CcmFja2V0IChSaWdodCkgKi8KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iNTgiIHI9IjMiIC8+IC8qIFBlbiBUb29sICovCiAgPC9nPgo8L3N2Zz4=");
   background-repeat: repeat;
   background-size: cover, 72px 72px; /* Set size: cover for gradient, 72x72 for pattern */
   background-attachment: scroll;
@@ -274,10 +283,12 @@ section a:hover {
   */
   background: linear-gradient(
     to bottom,
-    transparent 0%, /* Start completely transparent */
-    rgba(255, 255, 255, 0.2) 10%, /* Fade in to the line color (20% opacity of white) */
-    rgba(255, 255, 255, 0.2) 90%, /* Hold the color */
-    transparent 100% /* Fade out to transparent at the end */
+    transparent 0%,
+    /* Start completely transparent */ rgba(255, 255, 255, 0.2) 10%,
+    /* Fade in to the line color (20% opacity of white) */
+      rgba(255, 255, 255, 0.2) 90%,
+    /* Hold the color */ transparent 100%
+      /* Fade out to transparent at the end */
   );
   top: 0;
   bottom: 0;
@@ -867,14 +878,15 @@ button,
   top: 0;
   left: 0;
   /* UPDATED SIZE: 15px */
-  width: 15px; 
+  width: 15px;
   height: 15px;
   background-color: var(--text); /* Solid white/light color */
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+  transition: transform 0.1s ease-out, background-color 0.2s ease,
+    width 0.2s ease, height 0.2s ease;
 }
 
 /* 3. Interaction Effects */
@@ -907,7 +919,7 @@ textarea {
   .timeline-content,
   .bar-fill,
   .floating-cta,
-  .custom-cursor-pointer { 
+  .custom-cursor-pointer {
     transition: none !important;
   }
   html {
