@@ -26,7 +26,7 @@ body {
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-osx-font-smoothing: grayscale;
   min-height: 100%;
 }
 .container {
@@ -436,7 +436,7 @@ and removes the default link appearance. */
 }
 
 /* REMOVED: .publication-card-link:hover .publication-title { color: var(--badge-accent); }
-The title color will remain var(--text) */
+The title color will remain default text color on hover */
 
 .publication-title {
   margin: 0 0 8px 0;
@@ -820,6 +820,69 @@ a[href*="github.com"]:hover i {
   font-size: 18px;
 }
 
+/* --- CUSTOM CURSOR STYLES (UPDATED - Single Dot) --- */
+
+/* 1. Hide the default mouse cursor across the body */
+body,
+a,
+button,
+.btn {
+  /* Set the default cursor to transparent */
+  cursor: none !important;
+}
+
+/* 2. REMOVED .custom-cursor-dot STYLES */
+
+/* The inner pointer dot (now the only cursor element) */
+.custom-cursor-pointer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* UPDATED SIZE: 15px */
+  width: 15px; 
+  height: 15px;
+  background-color: var(--text); /* Solid white/light color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+/* 3. Interaction Effects */
+
+/* When hovering over clickable items (links, buttons, inputs) */
+a:hover ~ .custom-cursor-pointer,
+button:hover ~ .custom-cursor-pointer,
+.btn:hover ~ .custom-cursor-pointer,
+.email-link:hover ~ .custom-cursor-pointer,
+.contact-social-item:hover ~ .custom-cursor-pointer,
+.publication-card-link:hover ~ .custom-cursor-pointer {
+  /* Shrink the dot slightly and change color/size for clickability feedback */
+  transform: translate(-50%, -50%) scale(0.65); /* Shrink to about 10px */
+  background-color: var(--badge-accent); /* Optional color change for links */
+}
+
+/* Special treatment for text input (to make sure text is legible) */
+input[type="text"],
+textarea {
+  cursor: text !important; /* Restore default text cursor */
+}
+
+@media (max-width: 768px) {
+  /* Disable custom cursor on mobile devices */
+  /* REMOVED .custom-cursor-dot from this list */
+  .custom-cursor-pointer {
+    display: none;
+  }
+  body,
+  a,
+  button,
+  .btn {
+    cursor: auto !important; /* Restore default cursor on mobile */
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .role-text,
   .btn,
@@ -829,8 +892,8 @@ a[href*="github.com"]:hover i {
   .contact-social-item,
   .timeline-content,
   .bar-fill,
-  .floating-cta {
-    /* Added floating-cta */
+  .floating-cta,
+  .custom-cursor-pointer { /* Added custom-cursor-pointer to remove its movement transition */
     transition: none !important;
   }
   html {
@@ -881,6 +944,17 @@ a[href*="github.com"]:hover i {
     margin-top: 0;
   }
   /* REMOVED: .availability-badge { display: none; } */
+
+  /* Mobile-specific rule for custom cursor: disable it */
+  .custom-cursor-pointer {
+    display: none;
+  }
+  body,
+  a,
+  button,
+  .btn {
+    cursor: auto !important; /* Restore default cursor on mobile */
+  }
 }
 @media (max-width: 480px) {
   .hero-name {

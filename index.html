@@ -516,6 +516,9 @@
       <i class="fa-solid fa-paper-plane"></i> Contact Me
     </a>
 
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-pointer"></div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Mobile nav toggle
@@ -556,8 +559,22 @@
             setInterval(() => {
               roleIndex = (roleIndex + 1) % roles.length;
               roleEl.textContent = roles[roleIndex];
+              // Note: No need for class manipulation if reduced motion is preferred
             }, 3000);
           }
+        }
+
+        // Custom Cursor Movement (NEW)
+        const cursorDot = document.querySelector(".custom-cursor-dot");
+        const cursorPointer = document.querySelector(".custom-cursor-pointer");
+
+        if (cursorDot && cursorPointer) {
+          document.addEventListener("mousemove", function (e) {
+            // Update position for the tracer (dot)
+            cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+            // Update position for the pointer (small circle)
+            cursorPointer.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+          });
         }
       });
     </script>
