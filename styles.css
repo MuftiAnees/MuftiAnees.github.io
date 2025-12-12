@@ -68,16 +68,21 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
+  opacity: 1; /* Removed initial opacity 0.9 */
+  /* Added transitions for the new hover effects (background, transform, shadow) */
+  transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  /* NEW: Added base padding and border-radius */
+  padding: 4px 8px; 
+  border-radius: 6px;
+  display: inline-block; 
 }
 .main-nav a:hover,
 .main-nav a:focus {
+  /* NEW: Hover effect applied for lift and subtle background/shadow */
+  background-color: rgba(255, 255, 255, 0.08); /* Light, subtle background */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
   opacity: 1;
-}
-.main-nav a:focus {
-  outline: 3px solid rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
 }
 .menu-toggle {
   display: none;
@@ -820,7 +825,7 @@ a[href*="github.com"]:hover i {
   font-size: 18px;
 }
 
-/* --- CUSTOM CURSOR STYLES (UPDATED - Single Dot) --- */
+/* --- CUSTOM CURSOR STYLES (Single Dot) --- */
 
 /* 1. Hide the default mouse cursor across the body */
 body,
@@ -831,9 +836,7 @@ button,
   cursor: none !important;
 }
 
-/* 2. REMOVED .custom-cursor-dot STYLES */
-
-/* The inner pointer dot (now the only cursor element) */
+/* 2. The inner pointer dot (now the only cursor element) */
 .custom-cursor-pointer {
   position: fixed;
   top: 0;
@@ -869,20 +872,6 @@ textarea {
   cursor: text !important; /* Restore default text cursor */
 }
 
-@media (max-width: 768px) {
-  /* Disable custom cursor on mobile devices */
-  /* REMOVED .custom-cursor-dot from this list */
-  .custom-cursor-pointer {
-    display: none;
-  }
-  body,
-  a,
-  button,
-  .btn {
-    cursor: auto !important; /* Restore default cursor on mobile */
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .role-text,
   .btn,
@@ -893,7 +882,7 @@ textarea {
   .timeline-content,
   .bar-fill,
   .floating-cta,
-  .custom-cursor-pointer { /* Added custom-cursor-pointer to remove its movement transition */
+  .custom-cursor-pointer { 
     transition: none !important;
   }
   html {
