@@ -9,52 +9,46 @@
   --upwork-green: #6fda44;
   --github-purple: #9b59b6;
 }
-
-/* --- Base & Utilities --- */
 * {
   box-sizing: border-box;
 }
-
 html {
+  /* scroll-behavior: smooth ensures the floating CTA scrolls nicely */
   scroll-behavior: smooth;
-  scroll-padding-top: 84px; /* Offset for sticky header */
+  scroll-padding-top: 84px;
   height: 100%;
   overflow-y: scroll;
 }
-
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
 }
-
 .container {
   width: 90%;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
-
-/* --- Header & Navigation --- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: var(--bg);
-  box-shadow: none;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0);
 }
-
 .site-header > .container {
   display: flex;
   align-items: center;
+  /* MODIFICATION: Centering the remaining navigation items */
   justify-content: center;
   padding: 20px 0;
 }
-
 .logo {
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -62,7 +56,6 @@ body {
   color: var(--text);
   font-size: 14px;
 }
-
 .main-nav ul {
   display: flex;
   gap: 22px;
@@ -70,7 +63,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .main-nav a {
   color: var(--text);
   text-decoration: none;
@@ -79,18 +71,14 @@ body {
   opacity: 0.9;
   transition: opacity 0.2s ease;
 }
-
 .main-nav a:hover,
 .main-nav a:focus {
   opacity: 1;
 }
-
 .main-nav a:focus {
-  /* This is the focus outline, not a drop shadow, so keeping it for accessibility */
   outline: 3px solid rgba(255, 255, 255, 0.06);
   border-radius: 4px;
 }
-
 .menu-toggle {
   display: none;
   background: transparent;
@@ -98,8 +86,7 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-
-/* --- Hero Section --- */
+/* Removed .availability-badge CSS as it is removed from HTML */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -107,15 +94,14 @@ body {
   justify-content: center;
   padding: 80px 24px;
 }
-
 .hero-inner {
   text-align: center;
   max-width: 960px;
   margin: 0 auto;
 }
-
 .hero-name {
-  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    "Courier New", monospace;
   font-weight: 700;
   margin: 0;
   line-height: 1;
@@ -123,16 +109,15 @@ body {
   font-size: clamp(36px, 8vw, 72px);
   margin-top: 0;
 }
-
 .hero-role {
   margin-top: 10px;
   color: var(--muted);
   font-size: 18px;
   font-weight: 500;
 }
-
 .hero-motto {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   font-size: clamp(20px, 4vw, 32px);
   font-weight: 600;
   line-height: 1.4;
@@ -143,17 +128,14 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
 .role-text {
   display: inline-block;
   transition: opacity 420ms ease, transform 420ms ease;
 }
-
 .role-hidden {
   opacity: 0;
   transform: translateY(8px);
 }
-
 .cta-buttons {
   margin-top: 0;
   display: flex;
@@ -161,7 +143,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -171,53 +152,40 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  /* Removed box-shadow from the transition property as well */
-  transition: transform 0.2s ease; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .btn i {
   width: 16px;
   height: 16px;
   font-size: 16px;
 }
-
 .btn:hover {
   transform: translateY(-2px);
 }
-
 .btn-primary {
   color: var(--bg);
   background: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: none; 
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.06);
 }
-
 .btn-primary:hover {
-  /* REMOVED SHADOW on hover */
-  box-shadow: none; 
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12);
 }
-
 .btn-secondary {
   color: var(--text);
   background: transparent;
   border: 1px solid rgb(255, 255, 255);
 }
-
 .btn:focus {
-  /* Keeping focus outline for accessibility */
   outline: 3px solid rgba(255, 255, 255, 0.06);
 }
-
-/* --- Main Content & Sections --- */
 main {
   background: var(--bg);
   padding: 64px 0 0;
 }
-
 section {
   padding: 64px 0;
 }
-
 section h2 {
   font-size: 28px;
   color: var(--text);
@@ -225,69 +193,56 @@ section h2 {
   font-weight: 700;
   text-align: center;
 }
-
 section h3 {
   font-size: 20px;
   color: var(--text);
   margin: 24px 0 12px;
   font-weight: 600;
 }
-
 section p {
   line-height: 1.6;
   margin-bottom: 16px;
 }
-
 section ul {
   line-height: 1.8;
 }
-
 section a {
   color: var(--muted);
   text-decoration: underline;
 }
-
 section a:hover {
   opacity: 0.8;
 }
-
-/* --- About Section --- */
 #about .container {
   text-align: center;
 }
-
 #about p {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-
 #about h3 {
   text-align: center;
   margin-top: 40px;
 }
-
 #about ul {
   display: inline-block;
   padding-left: 0;
   list-style-type: none;
 }
-
 #about ul li {
   text-align: left;
   list-style-type: disc;
   list-style-position: inside;
 }
 
-/* --- Experience Timeline --- */
 .timeline {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
 }
-
 .timeline::after {
   content: "";
   position: absolute;
@@ -299,14 +254,12 @@ section a:hover {
   left: 50%;
   margin-left: -1px;
 }
-
 .timeline-item {
   padding: 10px 40px;
   position: relative;
   width: 50%;
   margin-bottom: 50px;
 }
-
 .timeline-content {
   background: var(--bg);
   padding: 25px;
@@ -314,26 +267,21 @@ section a:hover {
   border: 1px solid var(--text);
   transition: transform 0.3s ease;
 }
-
 .timeline-content:hover {
-  /* Ensures no shadow on hover */
   box-shadow: none;
 }
-
 .timeline-content h3 {
   margin-top: 0;
   margin-bottom: 8px;
   text-align: left;
   color: var(--text);
 }
-
 .company-name {
   color: var(--muted);
   font-style: italic;
   font-size: 14px;
   margin-bottom: 15px;
 }
-
 .timeline-content ul,
 .timeline-content p {
   text-align: left;
@@ -341,13 +289,11 @@ section a:hover {
   padding-left: 0;
   list-style-type: none;
 }
-
 .timeline-content ul li {
   margin-bottom: 8px;
   position: relative;
   padding-left: 30px;
 }
-
 .timeline-content ul li::before {
   content: "⚪";
   color: var(--text);
@@ -356,34 +302,165 @@ section a:hover {
   left: 0;
   top: 0;
 }
-
 .timeline-content.left {
   text-align: right;
 }
-
 .timeline-item:nth-child(even) {
   left: 0;
   padding-right: 30px;
 }
-
 .timeline-item:nth-child(even) .timeline-content {
   margin-right: 30px;
 }
-
 .timeline-content.right {
   text-align: left;
 }
-
 .timeline-item:nth-child(odd) {
   left: 50%;
   padding-left: 30px;
 }
-
 .timeline-item:nth-child(odd) .timeline-content {
   margin-left: 30px;
 }
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 10px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 10px;
+    left: 0% !important;
+  }
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    padding-right: 10px;
+  }
+  .timeline-item:nth-child(even) .timeline-content,
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .timeline-content {
+    text-align: left !important;
+  }
+}
 
-/* --- Metrics / Infographics Section --- */
+.timeline::after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.education-item {
+  background: #18181b;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.education-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+}
+
+.education-item h3 {
+  margin-top: 0;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.education-degree {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px 0;
+}
+
+.education-duration {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 16px 0;
+}
+
+.education-note {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- PUBLICATIONS SECTION STYLES --- */
+#publications {
+  text-align: center; /* Center the whole section content */
+}
+
+.publication-card-container {
+  max-width: 800px; /* Limit width */
+  margin: 0 auto; /* Center the container */
+  padding: 20px 0;
+}
+
+.publication-card-link {
+  /* Makes the anchor tag display as a block to fill the container, 
+and removes the default link appearance. */
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.publication-card {
+  /* Retain original background color */
+  background: #0b0b0b;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #f5f5f7;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center; /* Center text within the card */
+}
+
+/* Apply hover effects (lift/shadow) to the card when the link is hovered */
+.publication-card-link:hover .publication-card {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+}
+
+/* REMOVED: .publication-card-link:hover .publication-title { color: var(--badge-accent); }
+The title color will remain var(--text) */
+
+.publication-title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal; /* Non-italic */
+  /* Explicit color remains default text color on hover */
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.publication-description {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 4px auto 0 auto;
+  /* Non-italic */
+  padding-left: 0;
+  font-style: normal;
+  max-width: 90%;
+}
+/* End of #publications CSS */
+
+/* --- METRICS / INFOGRAPHICS SECTION STYLES --- */
+
 .metrics-section {
   padding: 64px 0;
   text-align: center;
@@ -405,7 +482,7 @@ section a:hover {
 
 .metric-card,
 .chart-card {
-  background: #18181b;
+  background: #18181b; /* Darker background than the main site for contrast */
   border-radius: 12px;
   padding: 30px 20px;
   display: flex;
@@ -413,16 +490,12 @@ section a:hover {
   justify-content: center;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  /* Removed box-shadow from the transition property as well */
-  transition: transform 0.2s ease;
-  box-shadow: none; 
 }
 
 .metric-card:hover,
 .chart-card:hover {
   transform: translateY(-4px);
-  /* REMOVED SHADOW on hover */
-  box-shadow: none; 
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
 }
 
 .metric-value {
@@ -450,7 +523,8 @@ section a:hover {
   text-align: center;
 }
 
-/* Pie Chart Specific Styles */
+/* --- Pie Chart Specific Styles --- */
+
 .chart-card {
   padding: 20px;
 }
@@ -504,6 +578,7 @@ section a:hover {
   color: var(--text);
 }
 
+/* Specific adjustments for the Quality Pie Chart (95%) */
 .pie-quality {
   --val: 95;
   background: conic-gradient(
@@ -512,6 +587,8 @@ section a:hover {
   );
 }
 
+/* Specific adjustments for the Delivery/Satisfaction Pie Chart (4.8/5.0) 
+We treat 4.8/5 as 96% for the chart visual (4.8 * 20) */
 .pie-delivery {
   --val: 96; /* 4.8 out of 5 is 96% */
   background: conic-gradient(
@@ -533,7 +610,8 @@ section a:hover {
   margin-bottom: 8px;
 }
 
-/* Bar Chart Specific Styles for Automation Coverage */
+/* --- Bar Chart Specific Styles for Automation Coverage (NEW) --- */
+
 .chart-card.chart-automation {
   padding: 20px;
   display: flex;
@@ -569,26 +647,27 @@ section a:hover {
 
 .bar-fill {
   height: 100%;
-  width: var(--percent);
+  width: var(--percent); /* Takes value from inline style in HTML */
   border-radius: 999px;
-  color: var(--bg);
+  color: var(--bg); /* Dark text on bright bar */
   font-weight: 700;
   font-size: 11px;
   line-height: 18px;
   text-align: right;
   padding-right: 6px;
-  transition: width 1s ease-out;
+  transition: width 1s ease-out; /* Add animation effect */
 }
 
+/* Specific bar colors */
 .bar-e2e {
-  background: var(--badge-accent);
+  background: var(--badge-accent); /* Green */
 }
 .bar-api {
-  background: var(--linkedin-blue);
+  background: var(--linkedin-blue); /* Blue */
 }
 .bar-unit {
-  background: var(--github-purple);
-  color: var(--text);
+  background: var(--github-purple); /* Purple */
+  color: var(--text); /* Lighter text on purple for better contrast */
   padding-left: 6px;
   text-align: left;
 }
@@ -599,132 +678,23 @@ section a:hover {
   text-align: center;
   margin: 0;
 }
+/* End of #metrics CSS */
 
-/* --- Publications Section --- */
-#publications {
-  text-align: center;
-}
-
-.publication-card-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-.publication-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.publication-card {
-  background: #0b0b0b;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #f5f5f7;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: none; 
-  text-align: center;
-}
-
-.publication-card-link:hover .publication-card {
-  transform: translateY(-4px);
-  /* REMOVED SHADOW on hover */
-  box-shadow: none; 
-}
-
-.publication-title {
-  margin: 0 0 8px 0;
-  font-size: 18px;
-  font-weight: 700;
-  font-style: normal;
-  color: var(--text);
-  transition: color 0.2s ease;
-}
-
-.publication-description {
-  color: var(--muted);
-  font-size: 15px;
-  margin: 4px auto 0 auto;
-  padding-left: 0;
-  font-style: normal;
-  max-width: 90%;
-}
-
-/* --- Education Section --- */
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.education-item {
-  background: #18181b;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: none; 
-  display: flex;
-  flex-direction: column;
-}
-
-.education-item:hover {
-  transform: translateY(-4px);
-  /* REMOVED SHADOW on hover */
-  box-shadow: none; 
-}
-
-.education-item h3 {
-  margin-top: 0;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.education-degree {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-  margin: 0 0 4px 0;
-}
-
-.education-duration {
-  font-size: 14px;
-  font-style: italic;
-  color: var(--muted);
-  margin: 0 0 16px 0;
-}
-
-.education-note {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* --- Contact Section --- */
+/* FIX 1: Removed bottom padding from the contact section */
 #contact {
   padding: 64px 0 0;
 }
-
 #contact .container {
   text-align: center;
 }
-
 .contact-subheading {
   max-width: 600px;
   margin: 0 auto 40px;
 }
-
 .social-links {
   margin: 0 auto;
   display: inline-block;
 }
-
 .email-link {
   display: inline-flex;
   align-items: center;
@@ -739,25 +709,21 @@ section a:hover {
   margin-bottom: 20px;
   transition: background 0.2s ease;
 }
-
 .email-link:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-
 .email-link i {
   width: 20px;
   height: 20px;
   font-size: 20px;
   color: var(--text);
 }
-
 .contact-social-row {
   display: flex;
   justify-content: center;
   gap: 30px;
   margin-top: 20px;
 }
-
 .contact-social-item {
   display: flex;
   flex-direction: column;
@@ -768,11 +734,9 @@ section a:hover {
   font-weight: 500;
   transition: color 0.2s ease;
 }
-
 .contact-social-item:hover {
   color: var(--text);
 }
-
 .contact-social-item i {
   width: 32px;
   height: 32px;
@@ -781,88 +745,81 @@ section a:hover {
   transition: color 0.2s ease;
   margin-bottom: 4px;
 }
-
 .contact-social-item:hover i {
   color: var(--text);
 }
-
 a[href*="linkedin.com"]:hover {
   color: var(--linkedin-blue);
 }
 a[href*="linkedin.com"]:hover i {
   color: var(--linkedin-blue);
 }
-
 a[href*="upwork.com"]:hover {
   color: var(--upwork-green);
 }
 a[href*="upwork.com"]:hover i {
   color: var(--upwork-green);
 }
-
 a[href*="github.com"]:hover {
   color: var(--github-purple);
 }
 a[href*="github.com"]:hover i {
   color: var(--github-purple);
 }
-
 .contact-footer {
+  /* MODIFICATION 3: Added 36px bottom padding inside the footer */
   padding: 36px 0 36px;
   text-align: center;
   color: var(--muted);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   margin-top: 40px;
 }
-
 .contact-footer p {
   margin: 4px 0;
 }
-
+/* FIX 3: Removed margin from the very last paragraph in the footer */
 .contact-footer p:last-child {
   margin-bottom: 0;
 }
 
-/* --- Floating CTA Button Style --- */
+/* --- Floating CTA Button Style (NEW) --- */
 
 .floating-cta {
-    /* Positioning */
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
+  /* Positioning */
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000; /* Ensure it floats above everything */
 
-    /* Styling */
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    border-radius: 1000px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    
-    /* Colors */
-    color: var(--bg);
-    background: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: none; 
+  /* Styling - Based on btn-primary for visual prominence */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 1000px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
 
-    /* Transitions & Hover */
-    transition: transform 0.3s ease;
+  /* Colors */
+  color: var(--bg); /* Dark text */
+  background: var(--text); /* Light background */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2); /* Stronger shadow for floating effect */
+
+  /* Transitions & Hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .floating-cta:hover {
-    transform: translateY(-4px); /* Lift higher on hover */
-    /* REMOVED SHADOW on hover */
-    box-shadow: none; 
+  transform: translateY(-4px); /* Lift higher on hover */
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
 }
 
 .floating-cta i {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-/* --- Responsive Adjustments --- */
 @media (prefers-reduced-motion: reduce) {
   .role-text,
   .btn,
@@ -873,6 +830,7 @@ a[href*="github.com"]:hover i {
   .timeline-content,
   .bar-fill,
   .floating-cta {
+    /* Added floating-cta */
     transition: none !important;
   }
   html {
@@ -880,40 +838,14 @@ a[href*="github.com"]:hover i {
     scroll-snap-type: none;
   }
 }
-
-@media screen and (max-width: 768px) {
-  /* Timeline collapse for mobile */
-  .timeline::after {
-    left: 10px;
-  }
-  .timeline-item {
-    width: 100%;
-    padding-left: 40px;
-    padding-right: 10px;
-    left: 0% !important;
-  }
-  .timeline-item:nth-child(even),
-  .timeline-item:nth-child(odd) {
-    padding-right: 10px;
-  }
-  .timeline-item:nth-child(even) .timeline-content,
-  .timeline-item:nth-child(odd) .timeline-content {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .timeline-content {
-    text-align: left !important;
-  }
-  .metrics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Navigation for mobile */
+@media (max-width: 768px) {
   .main-nav ul {
     display: none;
   }
   .menu-toggle {
     display: block;
+    /* If you wanted it aligned right on mobile, you would need to adjust the container flex properties too: */
+    /* .site-header > .container { justify-content: space-between; } */
   }
   .main-nav {
     position: absolute;
@@ -922,7 +854,7 @@ a[href*="github.com"]:hover i {
     background: var(--bg);
     border-radius: 8px;
     padding: 12px 18px;
-    box-shadow: none; 
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
     display: none;
   }
   .main-nav.open {
@@ -931,6 +863,9 @@ a[href*="github.com"]:hover i {
   .main-nav.open ul {
     flex-direction: column;
     gap: 12px;
+  }
+  .logo {
+    font-size: 13px;
   }
   .hero {
     padding: 80px 18px;
@@ -945,8 +880,8 @@ a[href*="github.com"]:hover i {
     gap: 10px;
     margin-top: 0;
   }
+  /* REMOVED: .availability-badge { display: none; } */
 }
-
 @media (max-width: 480px) {
   .hero-name {
     font-size: clamp(28px, 18vw, 44px);
@@ -961,7 +896,6 @@ a[href*="github.com"]:hover i {
     font-size: 16px;
     padding: 10px 14px;
   }
-  /* Collapse 'Get in touch' text on small screens */
   .email-link span {
     display: none;
   }
