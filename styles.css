@@ -252,8 +252,15 @@ section a:hover {
   content: "";
   position: absolute;
   width: 2px;
-  background-color: var(--muted);
-  opacity: 0.2;
+  /* UPDATED: Gradient fade effect for the center line 
+  */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%, /* Start completely transparent */
+    rgba(255, 255, 255, 0.2) 10%, /* Fade in to the line color (20% opacity of white) */
+    rgba(255, 255, 255, 0.2) 90%, /* Hold the color */
+    transparent 100% /* Fade out to transparent at the end */
+  );
   top: 0;
   bottom: 0;
   left: 50%;
