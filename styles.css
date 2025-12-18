@@ -353,15 +353,16 @@ section a:hover {
 
 #experience {
   /* Layer 1: Radial gradient mask that fades the background to black at the edges. */
-  /* Layer 2: The repeating SVG pattern */
+  /* Layer 2: Subtle grid pattern using linear gradients */
   background-image: radial-gradient(
       circle at center,
       rgba(11, 11, 11, 0) 50%,
       rgba(11, 11, 11, 1) 100%
     ),
-    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBvcGFjaXR5PSIwLjA1IiBmaWxsPSIjRkY3Ij4KICAgIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMiIC8+IC8qIENoZWNrLUNpcmNsZSAqLwogICAgPHJlY3QgeD0iNTMiIHk9IjI4IiB3aWR0aD0iNSIgaGVpZ2h0PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAzMSAzMSkiIC8+IC8qIENvZGUtQnJhY2tldCAoTGVmdCkgKi8KICAgIDxyZWN0IHg9IjU1IiB5PSIyMCIgd2lkdGg9IjUiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDM0IDI4KSIgLz4gLyogQ29kZS1CcmFja2V0IChSaWdodCkgKi8KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iNTgiIHI9IjMiIC8+IC8qIFBlbiBUb29sICovCiAgPC9nPgo8L3N2Zz4=");
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-repeat: repeat;
-  background-size: cover, 72px 72px; /* Set size: cover for gradient, 72x72 for pattern */
+  background-size: cover, 50px 50px, 50px 50px; /* Grid size */
   background-attachment: scroll;
 }
 
