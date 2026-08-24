@@ -352,17 +352,45 @@ section a:hover {
 /* --- EXPERIENCE BACKGROUND STYLING (UPDATED WITH GRADIENT) --- */
 
 #experience {
-  /* Layer 1: Radial gradient mask that fades the background to black at the edges. */
-  /* Layer 2: The repeating SVG pattern */
-  background-image: radial-gradient(
-      circle at center,
-      rgba(11, 11, 11, 0) 50%,
-      rgba(11, 11, 11, 1) 100%
+  position: relative;
+  overflow: hidden;
+}
+
+#experience::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #0d0d0f;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
     ),
-    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBvcGFjaXR5PSIwLjA1IiBmaWxsPSIjRkY3Ij4KICAgIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjMiIC8+IC8qIENoZWNrLUNpcmNsZSAqLwogICAgPHJlY3QgeD0iNTMiIHk9IjI4IiB3aWR0aD0iNSIgaGVpZ2h0PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAzMSAzMSkiIC8+IC8qIENvZGUtQnJhY2tldCAoTGVmdCkgKi8KICAgIDxyZWN0IHg9IjU1IiB5PSIyMCIgd2lkdGg9IjUiIGhlaWdodD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDM0IDI4KSIgLz4gLyogQ29kZS1CcmFja2V0IChSaWdodCkgKi8KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iNTgiIHI9IjMiIC8+IC8qIFBlbiBUb29sICovCiAgPC9nPgo8L3N2Zz4=");
-  background-repeat: repeat;
-  background-size: cover, 72px 72px; /* Set size: cover for gradient, 72x72 for pattern */
-  background-attachment: scroll;
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+#experience > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* --- TIMELINE SECTION STYLES --- */
